@@ -1,0 +1,122 @@
+.AboutUs {
+  width: 100%;
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--col-gap);
+
+    @media (max-width: 780px) {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  /* ─── Text column ──────────────────────────────────────── */
+  &__text {
+    flex: 0 0 55%;
+    max-width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    @media (max-width: 780px) {
+      flex: 1;
+      max-width: 100%;
+      order: 2;
+    }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--lavender);
+    margin-bottom: 20px;
+  }
+
+  &__heading {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 72px);
+    color: #fff;
+    line-height: 1.05;
+    margin: 0 0 32px 0;
+    letter-spacing: -0.02em;
+  }
+
+  &__body {
+    font-family: var(--font-body-light);
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(244, 201, 218, 0.8); /* blush at 80% */
+    margin: 0 0 20px 0;
+    max-width: 540px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--pink), transparent);
+    margin-top: 48px;
+    opacity: 0.5;
+  }
+
+  /* ─── Mosaic column ────────────────────────────────────── */
+  &__mosaic {
+    &--desktop {
+      flex: 0 0 45%;
+      max-width: 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 30px;
+
+      @media (max-width: 780px) {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: none;
+      width: 100%;
+
+      @media (max-width: 780px) {
+        display: block;
+        order: 1;
+        max-width: 320px;
+        margin: 0 auto 10px;
+      }
+    }
+  }
+}
+
+/* ─── Responsive heading ─────────────────────────────────── */
+@media (max-width: 780px) {
+  .AboutUs {
+    &__heading {
+      font-size: clamp(36px, 8vw, 48px);
+    }
+
+    &__body {
+      font-size: 15px;
+      max-width: 100%;
+    }
+
+    &__divider {
+      margin-top: 32px;
+    }
+  }
+}

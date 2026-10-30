@@ -1,0 +1,104 @@
+import '../styles/routes/contact.scss'
+import { motion } from 'framer-motion';
+import { useMotionVariants } from '../components/shared/motionVariants';
+
+function Contact() {
+    const mv = useMotionVariants();
+
+    return (
+        <div className="ContactUsSection mosaic-bg-texture">
+            {/* Ambient Background Glows */}
+            <div className="ContactUsSection__glow-orb ContactUsSection__glow-orb--1" />
+            <div className="ContactUsSection__glow-orb ContactUsSection__glow-orb--2" />
+            <div className="ContactUsSection__glow-orb ContactUsSection__glow-orb--3" />
+
+            <motion.div
+                className="ContactUsSection__container"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-60px' }}
+                variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.12 } },
+                }}
+            >
+                <motion.p className='ContactUsSection__container--eyebrow' variants={mv.fadeUp}>
+                    GET IN TOUCH
+                </motion.p>
+                <motion.p className='ContactUsSection__container--heading' variants={mv.fadeUp}>
+                    Contact Us
+                </motion.p>
+                <motion.div
+                    className='ContactUsSection__container--details'
+                    variants={{
+                        hidden: {},
+                        visible: { transition: { staggerChildren: 0.1 } },
+                    }}
+                >
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Rhea Vohra</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Lead Organizer</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-9810790034</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Srinithya Pasupuleti</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Co-Lead Organizer</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-8328251153</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Sanyukta Agarwal</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Curator & Licensee</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-6396944195</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Shreyaa Venkataraman</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Managing Director</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-9791185259</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Urshita Rathi</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Finance Head</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-9636896601</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Viraaj</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Curator & Co-licensee</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-9871927183</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Saad</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Executive Director</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-8929508824</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Perinbapriyan</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Creative Director</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-9360466022</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Enya</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Communication Director</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-9818441574</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Nithin</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Head of Production</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-7708714014</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Vyusti</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Fresher Coordinator</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-9810175756</p>
+                    </motion.div>
+                    <motion.div className='ContactUsSection__container--details__card' variants={mv.fadeUp}>
+                        <p className='ContactUsSection__container--details__card--name'>Mithreyi</p>
+                        <p className='ContactUsSection__container--details__card--designation'>Advisor</p>
+                        <p className='ContactUsSection__container--details__card--phone'>+91-7010308876</p>
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+        </div>
+    )
+}
+
+export default Contact;

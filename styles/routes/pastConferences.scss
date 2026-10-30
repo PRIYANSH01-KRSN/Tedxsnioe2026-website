@@ -1,0 +1,72 @@
+/* ═══════════════════════════════════════════════════════════════
+   Past Conferences — Mosaic dark plum → navy system
+   ═══════════════════════════════════════════════════════════════ */
+
+.PastConferencesSection {
+  @include box(100vw, 100%);
+  background: linear-gradient(180deg, var(--plum) 0%, var(--navy) 100%);
+  padding-top: 5rem;
+  display: block;
+  position: relative;
+
+  &__container {
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0rem 2rem 0 2rem;
+    padding-top: 1.5rem;
+
+    /* ─── Eyebrow ─────────────────────────────────────── */
+    &--eyebrow {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: var(--lavender);
+      text-align: center;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0 0 0.75rem;
+    }
+
+    /* ─── Heading ─────────────────────────────────────── */
+    &--heading {
+      color: #fff;
+      font-size: 5.625rem;
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 0;
+      margin-top: 0;
+      letter-spacing: 0.06rem;
+
+      @include respondAt(915px) {
+        font-size: 3rem;
+        text-align: center;
+        margin-right: 0;
+      }
+    }
+
+    &--slider {
+      width: 100%;
+      overflow: visible;
+      padding: 1.5rem 0 0.5rem;
+    }
+
+    &--divider {
+      width: 100vw;
+      display: grid;
+      place-items: center;
+
+      @include respondAt(915px) {
+        width: auto;
+      }
+
+      &__image {
+        margin: 1rem 0 2rem 0rem;
+
+        @include respondAt(915px) {
+          width: 15rem;
+        }
+      }
+    }
+  }
+}

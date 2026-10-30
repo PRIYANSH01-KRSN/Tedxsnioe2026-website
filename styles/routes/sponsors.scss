@@ -1,0 +1,127 @@
+/* ═══════════════════════════════════════════════════════════════
+   All Sponsors — Mosaic dark navy system
+   Monochrome logos, staggered flex, color on hover
+   No white cards — logos float directly on the dark background
+   ═══════════════════════════════════════════════════════════════ */
+
+.AllSponsors {
+  @include box(100%, 100%);
+  background: linear-gradient(180deg, #253040 0%, #161620 100%);
+  padding: 7rem 2rem 5rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  @media (max-width: 780px) {
+    padding: 6rem 1.25rem 4rem;
+  }
+
+  /* ─── Header ─────────────────────────────────────────── */
+  &__header {
+    max-width: var(--max-content);
+    margin: 0 auto 64px;
+    text-align: center;
+
+    @media (max-width: 780px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__eyebrow {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--lavender);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+  }
+
+  &__heading {
+    font-size: clamp(2.5rem, 6vw, 4.375rem);
+    font-family: var(--font-display);
+    font-weight: 900;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* ─── Logo field — staggered flex ────────────────────── */
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: var(--max-content);
+    margin: 0 auto;
+    gap: 40px 56px;
+
+    @media (max-width: 780px) {
+      gap: 24px 20px;
+    }
+
+    /* ─── Each logo item ─────────────────────────────── */
+    &--item {
+      flex: 0 0 auto;
+      transition: transform 0.3s ease;
+
+      /* Stagger offset on desktop */
+      &-offset {
+        transform: translateY(16px);
+
+        @media (max-width: 780px) {
+          transform: none;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.08);
+
+        &.AllSponsors__cards--item-offset {
+          transform: translateY(16px) scale(1.08);
+
+          @media (max-width: 780px) {
+            transform: scale(1.08);
+          }
+        }
+      }
+    }
+
+    /* ─── Logo image container ───────────────────────── */
+    &--image {
+      width: 160px;
+      height: 96px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      overflow: hidden;
+
+      /* Center img within container */
+      > div {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      img {
+        object-fit: contain !important;
+        object-position: center !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: relative !important;
+      }
+
+      @media (max-width: 780px) {
+        width: 100px;
+        height: 64px;
+      }
+
+      @media (max-width: 480px) {
+        width: 80px;
+        height: 52px;
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+/* ═══════════════════════════════════════════════════════════════
+   SpeakersStrip — Infinite auto-scrolling horizontal marquee
+   Capsule cards, Mosaic palette colors, white text on dark bg
+   Pure CSS keyframe animation for max performance.
+   ═══════════════════════════════════════════════════════════════ */
+
+.SpeakersStrip {
+  width: 100%;
+  padding: 2.5rem 0 1.5rem;
+  overflow: hidden;
+
+  /* ─── Section Title ──────────────────────────────────── */
+  &__title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #fff;
+    margin: 0 0 1.5rem;
+    padding-left: 2rem;
+    letter-spacing: 0.04em;
+
+    @include respondAt(780px) {
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      font-size: clamp(1.6rem, 7vw, 2.4rem);
+    }
+  }
+
+  /* ─── Marquee outer container (clips overflow) ───────── */
+  &__marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ─── Sliding track — holds 2× the cards, slides left ─ */
+  &__track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    /* Slide exactly half (one full set of cards) then reset */
+    animation: marqueeScroll 30s linear infinite;
+    will-change: transform;
+
+    &--paused {
+      animation-play-state: paused;
+    }
+
+    @include respondAt(780px) {
+      gap: 14px;
+      animation-duration: 22s;
+    }
+  }
+
+  /* ─── Each speaker item (card + text below) ─────────── */
+  &__item {
+    flex: 0 0 auto;
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include respondAt(780px) {
+      width: 145px;
+    }
+
+    @include respondAt(420px) {
+      width: 130px;
+    }
+  }
+
+  /* ─── Capsule card ──────────────────────────────────── */
+  &__card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 2.8;
+    border-radius: 16px 16px 95px 95px;
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+
+    @include respondAt(780px) {
+      border-radius: 12px 12px 72px 72px;
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+    }
+  }
+
+  /* ─── Portrait image ────────────────────────────────── */
+  &__card-img {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+
+    img {
+      border-radius: inherit;
+    }
+  }
+
+  /* ─── Name + Role below card ────────────────────────── */
+  &__info {
+    width: 100%;
+    text-align: center;
+    padding: 12px 4px 0;
+
+    @include respondAt(780px) {
+      padding-top: 8px;
+    }
+  }
+
+  &__name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 0;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+
+    @include respondAt(780px) {
+      font-size: 1rem;
+    }
+  }
+
+  &__role {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 3px 0 0;
+    line-height: 1.3;
+
+    @include respondAt(780px) {
+      font-size: 0.72rem;
+      margin-top: 2px;
+    }
+  }
+}
+
+/* ─── Marquee keyframe: slide by exactly 50% (one full set) ── */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* calc: half the track = one copy of the speakers list + half the gaps */
+    transform: translateX(-50%);
+  }
+}
